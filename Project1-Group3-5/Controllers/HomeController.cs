@@ -18,12 +18,23 @@ namespace Project1_Group3_5.Controllers
             _logger = logger;
         }
 
+        //Home page
         public IActionResult Index()
         {
             return View();
         }
-
-        public IActionResult Privacy()
+        //SignUp page
+        public IActionResult SignUp()
+        {
+            return View();
+        }
+        //Form page
+        public IActionResult Form()
+        {
+            return View();
+        }
+        //ViewAppointments page
+        public IActionResult ViewAppointments()
         {
             return View();
         }
