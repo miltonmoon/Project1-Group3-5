@@ -29,7 +29,15 @@ namespace Project1_Group3_5.Controllers
             return View();
         }
         //Form page
+        [HttpGet]
         public IActionResult Form()
+        {
+            return View();
+        }
+        //For the post method of the form 
+        //The "string data" can be changed to whatever value that needs to be passed thru the form--its just a placeholder right now so that the program runs.
+        [HttpPost]
+        public IActionResult Form(string data)
         {
             return View();
         }
