@@ -1,0 +1,17 @@
+﻿@{
+}
+
+@model Project1_Group3_5.Models.Booking
+<!--page to confirm submission of the form into booked appointments-->
+<div class="text-center">
+    <h1 class="display-4">@ViewBag.Title</h1>
+    <br /><br />
+    <p>Thank you for booking an appointment at the Layton Utah Temple!</p>
+    <br /><br />
+
+    <!--link to view all appointments-->
+    <p>Click <a asp-action="ViewAppointments">here</a> to view the entire collection.</p>
+
+    <!--link to home page-->
+    <p>Click <a asp-action="Index">here</a> to return to home page.</p>
+</div>
