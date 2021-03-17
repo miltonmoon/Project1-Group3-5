@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Project1_Group3_5.Models;
+using Project1_Group3_5.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,10 +13,12 @@ namespace Project1_Group3_5.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private IProject1Repository _repository;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, IProject1Repository repository)
         {
             _logger = logger;
+            _repository = repository;
         }
 
         //Home page
@@ -26,7 +29,11 @@ namespace Project1_Group3_5.Controllers
         //SignUp page
         public IActionResult SignUp()
         {
-            return View();
+            return View(new BookingListViewModel
+            {
+                Bookings = _repository.Bookings
+                .OrderBy(p => p.BookingDateTime)
+            });
         }
         //Form page
         [HttpGet]

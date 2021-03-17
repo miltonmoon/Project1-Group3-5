@@ -1,3 +1,28 @@
 ﻿@{
     ViewData["Title"] = "Tour Schedule";
 }
+
+@model BookingListViewModel
+
+<div class="text-center" style="font-family:Garamond;">
+    <table class="table table-bordered list-group-horizontal-lg">
+        <thead>
+            <tr style="color:forestgreen">
+                <th>Timeslot</th>
+                <th>Booking</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var x in Model.Bookings)
+            {
+                if (x.GroupName == "Available")
+                {
+                    <tr>
+                        <td>@x.BookingDateTime</td>
+                        <td><button type="submit">Book Tour</button></td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>
