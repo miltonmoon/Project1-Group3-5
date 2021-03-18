@@ -14,7 +14,7 @@ namespace Project1_Group3_5.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private IProject1Repository _repository;
-
+            
         public HomeController(ILogger<HomeController> logger, IProject1Repository repository)
         {
             _logger = logger;
@@ -27,6 +27,7 @@ namespace Project1_Group3_5.Controllers
             return View();
         }
         //SignUp page
+        [HttpGet]
         public IActionResult SignUp()
         {
             return View(new BookingListViewModel
@@ -35,23 +36,38 @@ namespace Project1_Group3_5.Controllers
                 .OrderBy(p => p.BookingDateTime)
             });
         }
-        //Form page
-        [HttpGet]
-        public IActionResult Form()
+
+        [HttpPost]
+        public IActionResult SignUp(Booking model)
         {
-            return View();
+            int id = model.BookingID;
+
+            return View("Form", new BookingListViewModel
+            {
+                Bookings = _repository.Bookings
+                .Where(p => p.BookingID == id)
+                .OrderBy(p => p.BookingDateTime)
+            });
         }
+
+        //Form page
+        /*[HttpGet]
+        public IActionResult Form(BookingListViewModel b)
+        {
+            return View(b);
+        }*/
         //For the post method of the form 
         //The "string data" can be changed to whatever value that needs to be passed thru the form--its just a placeholder right now so that the program runs.
         [HttpPost]
-        public IActionResult Form(string data)
+        /*public IActionResult Form(Booking booking)
         {
-            return View();
-        }
+            _repository.(booking);
+            return View("Confirmation", booking);
+        }*/
         //ViewAppointments page
         public IActionResult ViewAppointments()
         {
-            return View();
+            return View(_repository.Bookings);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

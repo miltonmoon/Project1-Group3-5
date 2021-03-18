@@ -15,5 +15,14 @@ namespace Project1_Group3_5.Models
         }
 
         public IQueryable<Booking> Bookings => _context.Bookings;
+
+        public Booking GetBookingById(int id)
+        {
+            return _context.Bookings.Find(id);
+        }
+        public void UpdateBooking(Booking booking)
+        {
+            _context.Entry(booking).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+        }
     }
 }
