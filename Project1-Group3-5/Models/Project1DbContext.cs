@@ -14,5 +14,6 @@ namespace Project1_Group3_5.Models
         }
 
         public DbSet<Booking> Bookings { get; set; }
+
     }
 }

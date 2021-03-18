@@ -1,3 +1,29 @@
 ﻿@{
     ViewData["Title"] = "Tour Appointments";
 }
+
+@model IEnumerable<Project1_Group3_5.Models.Booking>
+
+<div>
+    <h2>Here are the individuals currently on the waitlist</h2>
+
+    <table>
+        <thead>
+            <tr><th>Time</th><th>Group Name</th><th>Group Size</th><th>Contact Email</th><th>Contact Phone Number</th></tr>
+        </thead>
+
+        <tbody>
+            @foreach (Project1_Group3_5.Models.Booking x in Model)
+            {
+                <tr>
+                    <td>@x.BookingDateTime</td>
+                    <td>@x.GroupName</td>
+                    <td>@x.GroupSize</td>
+                    <td>@x.GroupEmail</td>
+                    <td>@x.GroupPhone</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

@@ -17,10 +17,14 @@
             {
                 if (x.GroupName == "Available")
                 {
-                    <tr>
-                        <td>@x.BookingDateTime</td>
-                        <td><button type="submit">Book Tour</button></td>
-                    </tr>
+                    <form method="post" asp-action="SignUp">
+                        <table>
+                            <tr>
+                                <td><input type="datetime" value="@x.BookingDateTime" readonly /></td>
+                                <td><button type="submit">Book Tour</button></td>
+                            </tr>
+                        </table>
+                    </form>
                 }
             }
         </tbody>

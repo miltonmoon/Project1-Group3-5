@@ -8,5 +8,8 @@ namespace Project1_Group3_5.Models
     public interface IProject1Repository
     {
         IQueryable<Booking> Bookings { get; }
+
+        Booking GetBookingById(int bookingId);
+        void UpdateBooking(Booking booking);
     }
 }
