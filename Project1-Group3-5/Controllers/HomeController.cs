@@ -38,10 +38,16 @@ namespace Project1_Group3_5.Controllers
         }
 
         [HttpPost]
-        public IActionResult SignUp(DateTime time)
+        public IActionResult SignUp(Booking model)
         {
-            ViewBag.Time = time;
-            return View("Form");
+            int id = model.BookingID;
+
+            return View("Form", new BookingListViewModel
+            {
+                Bookings = _repository.Bookings
+                .Where(p => p.BookingID == id)
+                .OrderBy(p => p.BookingDateTime)
+            });
         }
 
         //Form page

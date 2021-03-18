@@ -1,0 +1,14 @@
+﻿@model Booking
+
+@if (Model.GroupName == "Available")
+{
+    <tr>
+        <td>@Model.BookingDateTime</td>
+        <td>
+            <form asp-action="SignUp" method="post">
+                <input asp-for="BookingID" value="@Model.BookingID" type="hidden" />
+                <button type="submit">Book Tour</button>
+            </form>
+        </td>
+    </tr>
+}

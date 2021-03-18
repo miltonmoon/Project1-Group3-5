@@ -3,6 +3,7 @@
 }
 
 @model BookingListViewModel
+<p>@Model.Bookings</p>
 
 <div class="text-center" style="font-family:Garamond;">
     <table class="table table-bordered list-group-horizontal-lg">
@@ -15,17 +16,7 @@
         <tbody>
             @foreach (var x in Model.Bookings)
             {
-                if (x.GroupName == "Available")
-                {
-                    <form method="post" asp-action="SignUp">
-                        <table>
-                            <tr>
-                                <td><input type="datetime" value="@x.BookingDateTime" readonly /></td>
-                                <td><button type="submit">Book Tour</button></td>
-                            </tr>
-                        </table>
-                    </form>
-                }
+                <partial name="SignPost" model="x" />
             }
         </tbody>
     </table>
