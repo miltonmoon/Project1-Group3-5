@@ -59,11 +59,21 @@ namespace Project1_Group3_5.Controllers
         //For the post method of the form 
         //The "string data" can be changed to whatever value that needs to be passed thru the form--its just a placeholder right now so that the program runs.
         [HttpPost]
-        /*public IActionResult Form(Booking booking)
+        public IActionResult Form(Booking booking)
         {
-            _repository.(booking);
+            //Booking tempBooking = new Booking();
+            //_repository.Bookings.Where(p => p.BookingDateTime == booking.BookingDateTime) = tempBooking;
+
+            //_repository.GetBookingById(booking.BookingID).GroupName = booking.GroupName;
+            //_repository.GetBookingById(booking.BookingID).GroupEmail = booking.GroupEmail;
+            //_repository.GetBookingById(booking.BookingID).GroupPhone = booking.GroupPhone;
+            //_repository.GetBookingById(booking.BookingID).GroupSize = booking.GroupSize;
+
+            _repository.UpdateBooking(booking);
+
             return View("Confirmation", booking);
-        }*/
+        }
+
         //ViewAppointments page
         public IActionResult ViewAppointments()
         {

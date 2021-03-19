@@ -15,13 +15,15 @@
         <tbody>
             @foreach (Project1_Group3_5.Models.Booking x in Model)
             {
-                <tr>
-                    <td>@x.BookingDateTime</td>
-                    <td>@x.GroupName</td>
-                    <td>@x.GroupSize</td>
-                    <td>@x.GroupEmail</td>
-                    <td>@x.GroupPhone</td>
-                </tr>
+                @if (x.GroupName != "Available") { 
+                    <tr>
+                        <td>@x.BookingDateTime</td>
+                        <td>@x.GroupName</td>
+                        <td>@x.GroupSize</td>
+                        <td>@x.GroupEmail</td>
+                        <td>@x.GroupPhone</td>
+                    </tr>
+                }
             }
         </tbody>
     </table>

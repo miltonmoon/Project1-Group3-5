@@ -1,0 +1,11 @@
+﻿@model Booking
+
+<form id="@Model.BookingID" method="post" asp-action="SignUp">
+    <input type="hidden" asp-for="BookingID" />
+    <table>
+        <tr>
+            <td>@Model.BookingDateTime</td>
+            <td><button type="submit">Book Tour</button></td>
+        </tr>
+    </table>
+</form>

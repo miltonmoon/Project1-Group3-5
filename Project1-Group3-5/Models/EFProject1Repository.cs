@@ -20,9 +20,19 @@ namespace Project1_Group3_5.Models
         {
             return _context.Bookings.Find(id);
         }
+
+        public Booking GetBookingByDateTime(DateTime bookingDT)
+        {
+            return _context.Bookings.Find(bookingDT);
+        }
         public void UpdateBooking(Booking booking)
         {
-            _context.Entry(booking).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.Bookings.Find(booking.BookingID).GroupName = booking.GroupName;
+            _context.Bookings.Find(booking.BookingID).GroupEmail = booking.GroupEmail;
+            _context.Bookings.Find(booking.BookingID).GroupSize = booking.GroupSize;
+            _context.Bookings.Find(booking.BookingID).GroupPhone = booking.GroupPhone;
+            //_context.Entry(booking).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            _context.SaveChanges();
         }
     }
 }

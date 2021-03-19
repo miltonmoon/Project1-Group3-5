@@ -10,6 +10,7 @@ namespace Project1_Group3_5.Models
         IQueryable<Booking> Bookings { get; }
 
         Booking GetBookingById(int bookingId);
+        Booking GetBookingByDateTime(DateTime bookingDT);
         void UpdateBooking(Booking booking);
     }
 }
